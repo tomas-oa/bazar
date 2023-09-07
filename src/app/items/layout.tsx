@@ -1,4 +1,5 @@
-import CartIcon from "@/components/CartIcon"
+import SearchBar from "@/components/SearchBar"
+import { Display } from "@/types.d"
 
 export default function ItemsLayout({
   children,
@@ -8,10 +9,7 @@ export default function ItemsLayout({
   return (
     <html className="max-w-xs mx-auto" lang="en">
       <body>
-        <nav className="flex">
-          <CartIcon w={24} h={24}/>
-          {/* form component */}
-        </nav>
+        <SearchBar display={Display.Top}/>
         {children}
       </body>
     </html>

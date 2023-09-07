@@ -13,7 +13,7 @@ export default function ItemsList(props: Props) {
 
   return (
     <section>
-      <h5>Resultados de la búsqueda de "{search}": {total}</h5>
+      <h5 className='font-semibold text-sm'>Resultados de la búsqueda de "{search}": {total}</h5>
       <ul className="flex gap-6">
         <li>test</li>
         <li>test</li>
