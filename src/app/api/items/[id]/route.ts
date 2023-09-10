@@ -9,5 +9,5 @@ export async function GET(
   const { products } = data
 
   const item = products.find((product) => product.id === Number(id))
-  return NextResponse.json({ item })
+  return NextResponse.json(item)
 }
