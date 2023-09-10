@@ -1,15 +1,14 @@
-import data from '@/products.json'
+import { getItems } from '@/services/getItems';
 
-type Props = {
+interface Props {
   searchParams: { [key: string]: string | string[] | undefined },
 }
 
-export default function ItemsList(props: Props) {
+export default async function ItemsList(props: Props) {
   const { searchParams } = props
   const { search } = searchParams;
+  const { products, total } = await getItems({ search })
 
-  const { total } = data
-  const { products } = data
 
   return (
     <section>
@@ -20,7 +19,7 @@ export default function ItemsList(props: Props) {
       </ul>
       <section className='flex flex-col gap-6'>
         {
-          products.map((product) => (
+          products?.map((product: any) => (
             <article className='grid grid-cols-[40%,1fr] gap-6'>
                 <img className='rounded-full' src={product.thumbnail} alt={product.title} />
               <aside className='flex flex-col gap-1'>

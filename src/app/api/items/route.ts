@@ -11,6 +11,9 @@ export async function GET(request: Request) {
   const matches = products.filter((product) => {
     return product.title.toLowerCase().includes(query!.toLowerCase())
   })
+  const total = matches.length
 
-  return NextResponse.json({ matches })
+  const res = { products: matches, total }
+  
+  return NextResponse.json(res)
 }
