@@ -3,14 +3,14 @@ export enum Display {
   Main = 'main'
 }
 
-export interface Products {
+export interface ProductsI {
   products: Product[]
   total?: number
   skip?: number
   limit?: number
 }
 
-export interface Product {
+export interface ProductI {
   id: number
   title: string
   description: string
