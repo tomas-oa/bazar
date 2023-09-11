@@ -8,6 +8,7 @@ export interface ProductsI {
   total?: number
   skip?: number
   limit?: number
+  categories?: { name: string; count: number }[]
 }
 
 export interface ProductI {
