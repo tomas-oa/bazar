@@ -12,8 +12,19 @@ export async function GET(request: Request) {
     return product.title.toLowerCase().includes(query!.toLowerCase())
   })
   const total = matches.length
+  const categories = matches.reduce((acc, product) => {
+    const { category } = product
+    const existing = acc.find((item) => item.name === category)
+    if (existing) {
+      existing.count++
+    } else {
+      acc.push({ name: category, count: 1 })
+    }
+    return acc
+  }, [] as { name: string; count: number }[])
 
-  const res = { products: matches, total }
+  
+  const res = { products: matches, categories, total }
   
   return NextResponse.json(res)
 }
