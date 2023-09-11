@@ -1,5 +1,7 @@
+import NoResults from '@/components/NoResults'
 import Products from '@/components/Products'
 import { getItems } from '@/services/getItems'
+import Link from 'next/link'
 
 interface Props {
   searchParams: { [key: string]: string | string[] | undefined },
@@ -8,26 +10,15 @@ interface Props {
 export default async function ItemsList(props: Props) {
   const { searchParams } = props
   const { search } = searchParams
-  const { products, total } = await getItems({ search })
+  const { products, total, categories } = await getItems({ search })
 
-  if (total === 0) {
-    return (
-      <section className='flex flex-col items-center justify-center mt-24 gap-4'>
-        <h3 className='font-semibold text-3xl'>¡Vaya!</h3>
-        <h5 className='font-semibold text-xl [text-wrap:balance] text-center'>No encontramos resultados para "{search}" :(</h5>
-        <p className='text-center text-sm'>Por favor, prueba buscando otro producto</p>
-      </section>
-    )
-  }
+  if (total === 0) <NoResults search={search} />
   
   return (
-    <section>
+    <main className='flex flex-col min-h-[600px] gap-1 mt-4'>
       <h5 className='font-semibold text-sm'>Resultados de la búsqueda de "{search}": {total}</h5>
-      <ul className="flex gap-6">
-        <li>test</li>
-        <li>test</li>
-      </ul>
+
       <Products products={products} />
-    </section>
+    </main>
   )
 }
