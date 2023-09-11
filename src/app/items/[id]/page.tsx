@@ -1,3 +1,4 @@
+import ProductSkeleton from "@/components/ProductSkeleton"
 import { getItemsDetails } from "@/services/getItemDetails"
 
 interface Props {
