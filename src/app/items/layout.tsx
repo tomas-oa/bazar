@@ -7,7 +7,7 @@ export default function ItemsLayout({
   children: React.ReactNode
 }) {
   return (
-    <html className="max-w-xs mx-auto" lang="en">
+    <html className="max-w-xs mx-auto min-h-screen" lang="en">
       <body>
         <SearchBar display={Display.Top}/>
         {children}
