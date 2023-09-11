@@ -1,4 +1,4 @@
-import ProductSkeleton from "@/components/ProductSkeleton"
+import Rating from "@/components/Rating"
 import { getItemsDetails } from "@/services/getItemDetails"
 
 interface Props {
@@ -27,14 +27,14 @@ export default async function Page({ params }: Props) {
           }
         </aside>
       </section>
-      <section className="flex flex-col">
+      <section className="flex flex-col gap-3">
         <h1 className="text-2xl font-bold text-center">{item.title} - {item.brand}</h1>
         <div className="flex justify-center items-center gap-6">
           <div className="flex flex-col items-center">
             <h4 className="font-bold text-xl">{item.price}$</h4>
             <p className="text-md font-semibold">{item.stock} disponibles</p>
           </div>
-          <h4>{item.rating}</h4>
+          <Rating rating={item.rating} />
         </div>
       </section>
       <section className="">

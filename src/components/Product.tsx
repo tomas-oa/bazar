@@ -1,5 +1,6 @@
 import { type ProductI } from "@/types";
 import Link from "next/link";
+import Rating from "./Rating";
 
 export default function Product ({product}: { product: ProductI}) {
   return (
@@ -11,9 +12,13 @@ export default function Product ({product}: { product: ProductI}) {
         <aside className='flex flex-col gap-1'>
           <h1 className='text-xl font-bold capitalize [text-wrap:balance]'>{product.title}</h1>
           <p className='text-sm [text-wrap:balance]'>{product.description}</p>
-          <div className='flex justify-between'>
-            <h1 className='text-md font-bold'>{product.price}$</h1>
-            <span>{product.rating}</span>
+          <div className='flex justify-between items-center'>
+            <h2 className='text-md text-center font-bold h-full flex items-center justify-center pt-1'>
+              <span>
+                {product.price}$
+              </span>
+            </h2>
+            <Rating rating={product.rating} />
           </div>
         </aside>
       </article>
