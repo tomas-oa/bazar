@@ -16,7 +16,7 @@ export default async function ItemsList(props: Props) {
   
   return (
     <main className='flex flex-col min-h-[600px] gap-1 mt-4'>
-      <h5 className='font-semibold text-sm'>Resultados de la búsqueda de "{search}": {total}</h5>
+      <h5 className='font-semibold text-sm'>Resultados de la búsqueda de {`"${search}":`} {total}</h5>
       <Categories categories={categories} />
       <Products products={products} />
     </main>
