@@ -17,7 +17,7 @@ export default async function Page({ params }: Props) {
       <ProductImages item={item} />
       <ProductInfo item={item} />
       <footer className="h-16 flex items-center justify-center ">
-        <button className="h-full w-full bg-pink-300 rounded-full text-2xl shadow-md shadow-blue-700">Comprar</button>
+        <button className="h-full w-full bg-pink-300 rounded-full text-2xl shadow-md shadow-pink-200 border border-violet-200">Comprar</button>
       </footer>
     </main>
   )
