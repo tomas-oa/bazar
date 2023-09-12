@@ -5,12 +5,22 @@ export async function GET(request: Request) {
   const { searchParams } = new URL(request.url)
   const query = searchParams.get('q')
   
-  // TODO: search by title, description?, category, brand?
   const { products } = data
 
-  const matches = products.filter((product) => {
+  const matchesByTitle = products.filter((product) => {
     return product.title.toLowerCase().includes(query!.toLowerCase())
   })
+
+  const matchesByCategory = products.filter((product) => {
+    return product.category.toLowerCase().includes(query!.toLowerCase())
+  })
+
+  const matchesByBrand = products.filter((product) => {
+    return product.brand.toLowerCase().includes(query!.toLowerCase())
+  })
+
+  const matches = [...matchesByTitle, ...matchesByCategory, ...matchesByBrand]
+
   const total = matches.length
   const categories = matches.reduce((acc, product) => {
     const { category } = product
