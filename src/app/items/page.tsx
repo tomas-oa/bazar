@@ -12,7 +12,7 @@ export default async function ItemsList(props: Props) {
   const { search } = searchParams
   const { products, total, categories } = await getItems({ search })
 
-  if (total === 0) <NoResults search={search} />
+  if (total === 0) return <NoResults search={search} />
   
   return (
     <main className='flex flex-col min-h-[600px] gap-1 mt-4'>
