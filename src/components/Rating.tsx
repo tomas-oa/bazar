@@ -4,7 +4,7 @@ interface Props {
 
 export default function Rating({ rating }: Props) {
   return (
-    <div className="text-2xl flex gap-0.5">
+    <div className="text-xl flex gap-0.5">
       {
         "★"
           .repeat(rating)
