@@ -20,7 +20,7 @@ export default function SearchBar ({ display }: Props) {
   if (display === Display.Top) {
     return (
       <nav className="flex items-center min-w-full justify-between mt-4 gap-4">
-        <Link href={'/'}>
+        <Link className="mr-1" href={'/'}>
           <CartIcon w={24} h={24} />
         </Link>
         <form className="w-full" action='/items'>
