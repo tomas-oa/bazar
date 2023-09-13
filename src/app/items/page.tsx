@@ -4,11 +4,10 @@ import { getItems } from '@/services/getItems'
 import Categories from '@/components/Categories'
 
 interface Props {
-  searchParams: { [key: string]: string | string[] | undefined },
+  searchParams: { search: string }
 }
 
-export default async function ItemsList(props: Props) {
-  const { searchParams } = props
+export default async function ItemsList({ searchParams }: Props) {
   const { search } = searchParams
   const { products, total, categories } = await getItems({ search })
 
