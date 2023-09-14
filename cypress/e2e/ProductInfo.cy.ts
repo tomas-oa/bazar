@@ -1,4 +1,4 @@
-import { BASE_URL, PRODUCT_ID, SEARCH_TERM } from "./constants"
+import { BASE_URL, PRODUCT_ID } from "./constants"
 
 describe('product details page', () => {
   beforeEach(() => {

@@ -2,7 +2,7 @@ import { BASE_URL, SEARCH_TERM } from "./constants"
 
 describe('Main Page', () => {
   beforeEach(() => {
-    cy.visit('http://localhost:3000/')
+    cy.visit(BASE_URL)
   })
 
   it('should render the search input', () => {
@@ -16,6 +16,6 @@ describe('Main Page', () => {
   it('should search for products and redirect', () => {
     cy.get('input').type(`${SEARCH_TERM}`)
     cy.get('button').click()
-    cy.url().should('include', `${BASE_URL}/items?search=${SEARCH_TERM}`)
+    cy.url().should('include', `/items?search=${SEARCH_TERM}`)
   })
 })
