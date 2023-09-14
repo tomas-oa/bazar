@@ -1,8 +1,8 @@
-import { AMMOUNT_FOUND, PRODUCT_ID, SEARCH_TERM } from "./constants"
+import { AMMOUNT_FOUND, BASE_URL, PRODUCT_ID, SEARCH_TERM } from "./constants"
 
 describe('Products List', () => {
   beforeEach(() => {
-    cy.visit(`http://localhost:3000/items?search=${SEARCH_TERM}`)
+    cy.visit(`${BASE_URL}/items?search=${SEARCH_TERM}`)
   })
 
   it('should render the search input', () => {

@@ -1,4 +1,4 @@
-import { SEARCH_TERM } from "./constants"
+import { BASE_URL, SEARCH_TERM } from "./constants"
 
 describe('Main Page', () => {
   beforeEach(() => {
@@ -16,6 +16,6 @@ describe('Main Page', () => {
   it('should search for products and redirect', () => {
     cy.get('input').type(`${SEARCH_TERM}`)
     cy.get('button').click()
-    cy.url().should('include', `/items?search=${SEARCH_TERM}`)
+    cy.url().should('include', `${BASE_URL}/items?search=${SEARCH_TERM}`)
   })
 })
