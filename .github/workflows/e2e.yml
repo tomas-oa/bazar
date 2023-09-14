@@ -1,4 +1,4 @@
-name: End-to-end tests
+name: E2E on Chrome
 on: push
 jobs:
   cypress-run:
@@ -10,3 +10,8 @@ jobs:
       # and run all Cypress tests
       - name: Cypress run
         uses: cypress-io/github-action@v6
+        with:
+          browser: chrome
+          build: pnpm build
+          start: pnpm start
+          wait-on: 'http://localhost:3000'
